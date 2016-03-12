@@ -35,7 +35,7 @@ def get_vision_service():
 
 
 # [START detect_face]
-def detect_face(face_file, max_results=4):
+def _detect_face(face_file, max_results=4):
     """Uses the Vision API to detect faces in the given file.
     Args:
         face_file: A file-like object containing an image with faces.
@@ -67,29 +67,17 @@ def detect_face(face_file, max_results=4):
 
 
 # [START main]
-def main(input_filename, output_filename):
+def detect(input_filename):
     with open(input_filename, 'rb') as image:
         translator = {'LIKELY':2,'UNLIKELY':1, 'VERY_UNLIKELY':0,'VERY_LIKELY':3}
-        faces = detect_face(image)
-        # print faces
-        print('Found %s face%s' % (len(faces), '' if len(faces) == 1 else 's'))
+        faces = _detect_face(image)
         for face in faces:
-            print('============')
             joy_likelihood_ = translator[face['joyLikelihood']]
-            print("joy:" + str(joy_likelihood_))
             sorrow_likelihood_ = translator[face['sorrowLikelihood']]
-            print("sorrow:" + str(sorrow_likelihood_))
             anger_likelihood = translator[face['angerLikelihood']]
-            print("anger:" + str(anger_likelihood))
             surprise_likelihood_ = translator[face['surpriseLikelihood']]
-            print("surprise:" + str(surprise_likelihood_))
             probability = anger_likelihood*-3+sorrow_likelihood_*-2+surprise_likelihood_*1+joy_likelihood_*3
-            print probability
             return probability
-        #
-        # print('Writing to file %s' % output_filename)
-        # Reset the file pointer, so we can read the file again
-
 
 # [END main]
 
@@ -104,4 +92,4 @@ if __name__ == '__main__':
         help='the name of the output file.')
     args = parser.parse_args()
 
-    main(args.input_image, args.output)
+    detect(args.input_image, args.output)
