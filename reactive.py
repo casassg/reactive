@@ -10,7 +10,7 @@ camera_port = 0
 n_frame = 10
 
 
-def take_photo():
+def take_photo(output_path):
     cam = VideoCapture(camera_port)
     #Cam weight&height properties
     cam.set(3,1280)
@@ -22,7 +22,7 @@ def take_photo():
 
     #we take the photo we want to finally use
     s, img = cam.read()
-    imwrite("static/img/reaction.jpg",img) #we save the image
+    imwrite(output_path,img) #we save the image
 
     #we delete the camera so it can be used by other apps
     del(cam)
@@ -30,7 +30,7 @@ def take_photo():
 
 @app.route('/')
 def hello_world():
-    take_photo()
+    take_photo("static/img/reaction.jpg")
     return render_template("base.html")
 
 
