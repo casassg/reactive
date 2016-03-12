@@ -69,7 +69,7 @@ def _detect_face(face_file, max_results=4):
 # [START main]
 def detect(input_filename):
     with open(input_filename, 'rb') as image:
-        translator = {'LIKELY':2,'UNLIKELY':1, 'VERY_UNLIKELY':0,'VERY_LIKELY':3}
+        translator = {'LIKELY':2,'UNLIKELY':1, 'VERY_UNLIKELY':0,'VERY_LIKELY':3,'POSSIBLE':2}
         faces = _detect_face(image)
         for face in faces:
             joy_likelihood_ = translator[face['joyLikelihood']]

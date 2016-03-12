@@ -8,7 +8,7 @@ def take_photo(output_path):
     cam.set(4, 1024)
 
     # we take n_frame photos to adjust light
-    for i in xrange(10):
+    for i in xrange(20):
         tmp=cam.read()
 
     # we take the photo we want to finally use
