@@ -2,7 +2,7 @@
  * Created by casassg on 12/03/16.
  */
 $(function () {
-    const IMAGE_NUMBER = 8;
+    const IMAGE_NUMBER = 7;
     var intro_section = $('.intro');
     var loading_section = $('.loading');
     var happy_section = $('.happy');
@@ -28,8 +28,21 @@ $(function () {
             else {
                 show_result(old_result, data.result)
             }
+        }).error(function () {
+            setTimeout(react,3000)
         })
     });
+
+    function react() {
+        sad_section.hide();
+        loading_section.show();
+        $.ajax({
+            url: 'picture/react/' + session_id,
+            dataType: "json"
+        }).done(function (data) {
+            show_result(old_result, data.result)
+        });
+    }
 
     function show_result(old_r, new_r) {
         intro_section.hide();
@@ -46,20 +59,11 @@ $(function () {
             happy_section.show()
         } else {
             old_result = new_r;
-            var gif_id = Math.round(Math.random()*IMAGE_NUMBER);
+            var gif_id = Math.round(Math.random() * IMAGE_NUMBER);
             console.log(gif_id);
-            $('#sad_image').attr('src','static/resources/gif/'+gif_id+'.gif');
+            $('#sad_image').attr('src', 'static/resources/gif/' + gif_id + '.gif');
             sad_section.show();
-            setTimeout(function () {
-                sad_section.hide();
-                loading_section.show();
-                $.ajax({
-                    url: 'picture/react/' + session_id,
-                    dataType: "json"
-                }).done(function (data) {
-                    show_result(old_result, data.result)
-                });
-            }, 1500);
+            setTimeout(react, 2500);
 
         }
     }

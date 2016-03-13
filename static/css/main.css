@@ -5,6 +5,10 @@ body, h1,h2,h3,h4,h5 {
     color:white;
 }
 
+.gif {
+    width: 400px;
+    height: 400px;
+}
 
 button {
     height:50px;
