@@ -2,7 +2,7 @@
  * Created by casassg on 12/03/16.
  */
 $(function () {
-    const IMAGE_NUMBER = 8;
+    const IMAGE_NUMBER = 13;
     var intro_section = $('.intro');
     var loading_section = $('.loading');
     var happy_section = $('.happy');
@@ -60,7 +60,6 @@ $(function () {
         } else {
             old_result = new_r;
             var gif_id = Math.round(Math.random() * IMAGE_NUMBER);
-            console.log(gif_id);
             $('#sad_image').attr('src', 'static/resources/gif/' + gif_id + '.gif');
             sad_section.show();
             setTimeout(react, 3500);

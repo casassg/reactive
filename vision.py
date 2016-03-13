@@ -1,28 +1,7 @@
-#!/usr/bin/python
-
-# Copyright 2015 Google, Inc
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-"""Draws squares around faces in the given image."""
-
-import argparse
 import base64
-
 from googleapiclient import discovery
 from oauth2client.client import GoogleCredentials
 
-# [START get_vision_service]
 DISCOVERY_URL = 'https://{api}.googleapis.com/$discovery/rest?version={apiVersion}'
 
 
@@ -32,10 +11,6 @@ def get_vision_service():
                            discoveryServiceUrl=DISCOVERY_URL)
 
 
-# [END get_vision_service]
-
-
-# [START detect_face]
 def _detect_face(face_file, max_results=4):
     """Uses the Vision API to detect faces in the given file.
     Args:
@@ -59,7 +34,7 @@ def _detect_face(face_file, max_results=4):
         'requests': batch_request,
     })
     response = request.execute()
-    if not 'faceAnnotations' in response['responses'][0]:
+    if 'faceAnnotations' not in response['responses'][0]:
         return []
 
     return response['responses'][0]['faceAnnotations']
@@ -71,7 +46,7 @@ def _detect_face(face_file, max_results=4):
 # [START main]
 def detect(input_filename):
     with open(input_filename, 'rb') as image:
-        translator = {'LIKELY':2,'UNLIKELY':1, 'VERY_UNLIKELY':0,'VERY_LIKELY':3,'POSSIBLE':2}
+        translator = {'LIKELY': 2, 'UNLIKELY': 1, 'VERY_UNLIKELY': 0, 'VERY_LIKELY': 3, 'POSSIBLE': 2}
         faces = _detect_face(image)
         for face in faces:
             joy_likelihood_ = translator[face['joyLikelihood']]
@@ -81,19 +56,3 @@ def detect(input_filename):
             probability = anger_likelihood * -3 + sorrow_likelihood_ * -2 + surprise_likelihood_ * 1 + joy_likelihood_ * 3
             return probability
         return 'NOFACE'
-
-
-# [END main]
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description='Detects faces in the given image.')
-    parser.add_argument(
-        'input_image', help='the image you\'d like to detect faces in.')
-    parser.add_argument(
-        '--out', dest='output', default='out.jpg',
-        help='the name of the output file.')
-    args = parser.parse_args()
-
-    detect(args.input_image, args.output)

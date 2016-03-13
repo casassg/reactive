@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReactGif</title>
     <link rel="shortcut icon" href="static/resources/icon.png">
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
@@ -37,10 +38,12 @@
         <h3>Looks like you're already happy!! ;)</h3>
         <h4>Watching a hedgehog taking a bath is good anyway</h4>
         <br>
-        <img class="gif" src="{{ url_for('static',filename='resources/gif/-1.gif') }}">
-        <button class="start mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-            START AGAIN
-        </button>
+        <img class="gif" width="200px" height="200px" src="{{ url_for('static',filename='resources/gif/-1.gif') }}">
+        <div>
+            <button class="start mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                START AGAIN
+            </button>
+        </div>
     </div>
 </div>
 

@@ -1,4 +1,8 @@
 
+@font-face {
+    font-family: 'Poiret One';
+    src: url(/static/font/poiron.woff2);
+}
 
 body, h1,h2,h3,h4,h5 {
     font-family: 'Poiret One', serif;
@@ -30,5 +34,5 @@ body div.center {
 }
 
 button.start {
-    padding-top:20px;
+    margin-top:20px;
 }
