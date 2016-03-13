@@ -7,7 +7,7 @@
     <title>ReactGif</title>
     <link rel="shortcut icon" href="static/resources/icon.png">
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.amber-orange.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/mdl/material.min.css') }}">
     <link href='{{ url_for('static',filename='css/main.css') }}' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -19,7 +19,6 @@
         <br>
 
         <h3>The first automatic GIF cheerleader</h3>
-        <br>
         <button class="start mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             START
         </button>
@@ -36,7 +35,7 @@
 <div class="happy hidden_begin center">
     <div align="center">
         <h3>Looks like you're already happy!! ;)</h3>
-        <h4>But you can watch a hedgehog taking a bath anyway</h4>
+        <h4>Watching a hedgehog taking a bath is good anyway</h4>
         <br>
         <img class="gif" src="{{ url_for('static',filename='resources/gif/-1.gif') }}">
         <button class="start mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
@@ -52,7 +51,7 @@
         <h5>Have you tried turning it off and on again?</h5>
 
         <button class="start mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-            START AGAIN
+            TRY AGAIN
         </button>
     </div>
 </div>
@@ -68,6 +67,8 @@
     <div align="center">
         <h3>Seems like we're having some problems to connect to the network</h3>
         <h4>Hold on, there's a developer solving it some place in the world...</h4>
+        <h5>Meanwhile we will provide you with the answer of life...</h5>
+
     </div>
 </div>
 

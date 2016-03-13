@@ -2,7 +2,7 @@
  * Created by casassg on 12/03/16.
  */
 $(function () {
-    const IMAGE_NUMBER = 7;
+    const IMAGE_NUMBER = 8;
     var intro_section = $('.intro');
     var loading_section = $('.loading');
     var happy_section = $('.happy');
@@ -63,7 +63,7 @@ $(function () {
             console.log(gif_id);
             $('#sad_image').attr('src', 'static/resources/gif/' + gif_id + '.gif');
             sad_section.show();
-            setTimeout(react, 2500);
+            setTimeout(react, 3500);
 
         }
     }
