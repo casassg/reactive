@@ -9,3 +9,10 @@
 body {
     font-family: 'Josefin Slab', serif;
 }
+
+.loading{
+    font-family: 'Josefin Slab', serif;
+    position: absolute;
+    top:30%;
+    width: 100%;
+}

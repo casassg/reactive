@@ -11,7 +11,7 @@
 </head>
 <body>
 <br>
-<div class="intro" align="center">
+<div class="intro" align="center" style="display: none" >
     <h1>Welcome to "KeepItUp"</h1><br>
     <br>
     <h3>Press the button, we'll take a photo from you and analyze it</h3>
@@ -24,5 +24,13 @@
     </div>
 </div>
 <script src="{{ url_for('static',filename='lib/mdl/material.min.js') }}"></script>
+
+<div class="loading">
+    <div align="center">
+        <h3>Loading...</h3>
+        <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    </div>
+</div>
+
 </body>
 </html>
