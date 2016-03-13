@@ -18,6 +18,7 @@
 
 import argparse
 import base64
+
 from googleapiclient import discovery
 from oauth2client.client import GoogleCredentials
 
@@ -58,7 +59,8 @@ def _detect_face(face_file, max_results=4):
         'requests': batch_request,
     })
     response = request.execute()
-    # print(response)
+    if not 'faceAnnotations' in response['responses'][0]:
+        return []
 
     return response['responses'][0]['faceAnnotations']
 
@@ -76,8 +78,10 @@ def detect(input_filename):
             sorrow_likelihood_ = translator[face['sorrowLikelihood']]
             anger_likelihood = translator[face['angerLikelihood']]
             surprise_likelihood_ = translator[face['surpriseLikelihood']]
-            probability = anger_likelihood*-3+sorrow_likelihood_*-2+surprise_likelihood_*1+joy_likelihood_*3
+            probability = anger_likelihood * -3 + sorrow_likelihood_ * -2 + surprise_likelihood_ * 1 + joy_likelihood_ * 3
             return probability
+        return 'NO FACES'
+
 
 # [END main]
 
