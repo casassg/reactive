@@ -80,7 +80,7 @@ def detect(input_filename):
             surprise_likelihood_ = translator[face['surpriseLikelihood']]
             probability = anger_likelihood * -3 + sorrow_likelihood_ * -2 + surprise_likelihood_ * 1 + joy_likelihood_ * 3
             return probability
-        return 'NO FACES'
+        return 'NOFACE'
 
 
 # [END main]

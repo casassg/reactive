@@ -10,12 +10,16 @@ body {
     font-family: 'Josefin Slab', serif;
 }
 
-.loading {
+
+button {
+    height:50px;
+    width:150px
+}
+body div {
     font-family: 'Josefin Slab', serif;
     position: absolute;
     top: 30%;
     width: 100%;
-    display: none;
 }
 
 .hidden_begin{
