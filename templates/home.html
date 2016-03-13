@@ -10,8 +10,8 @@
 </head>
 <body>
 <br>
-<div class="intro" align="center" style="display: none" >
-    <h1>Welcome to KeepItUp</h1><br>
+<div class="intro" align="center" >
+    <h1>Welcome to "KeepItUp"</h1><br>
     <br>
     <h3>Press the button, we'll take a photo from you and analyze it</h3>
     <h3>Depending on your emotions, we'll show you a specific content</h3>
@@ -23,15 +23,21 @@
     </div>
 </div>
 
-<div class="loading">
+<div class="loading hidden_begin">
     <div align="center">
         <h3>Loading...</h3>
         <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
     </div>
 </div>
+<div class="happy hidden_begin">
+    <div align="center">
+        <h3>Seems that you're already happy!! ;)</h3>
+        <h4>But you can watch a </h4>
+    </div>
+</div>
 
 <script src="{{ url_for('static',filename='lib/mdl/material.min.js') }}"></script>
-<script src="{{ url_for('static',filename='lib/mdl/jquery-2.2.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/jquery/jquery-2.2.1.min.js') }}"></script>
 <script src="{{ url_for('static',filename='app/app.js') }}"></script>
 
 </body>
