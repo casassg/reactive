@@ -2,6 +2,7 @@
  * Created by casassg on 12/03/16.
  */
 $(function () {
+    const IMAGE_NUMBER = 8;
     var intro_section = $('.intro');
     var loading_section = $('.loading');
     var happy_section = $('.happy');
@@ -40,20 +41,25 @@ $(function () {
             noface_section.show();
             return;
         }
-        //var dif = new_r - old_r;
         if (new_r > 0) {
+            var dif = new_r - old_r;
             happy_section.show()
         } else {
             old_result = new_r;
+            var gif_id = Math.round(Math.random()*IMAGE_NUMBER);
+            console.log(gif_id);
+            $('#sad_image').attr('src','static/resources/gif/'+gif_id+'.gif');
             sad_section.show();
             setTimeout(function () {
+                sad_section.hide();
+                loading_section.show();
                 $.ajax({
                     url: 'picture/react/' + session_id,
                     dataType: "json"
                 }).done(function (data) {
                     show_result(old_result, data.result)
                 });
-            }, 3000);
+            }, 1500);
 
         }
     }

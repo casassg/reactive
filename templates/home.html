@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Keep it up</title>
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.amber-orange.min.css">
     <link href='{{ url_for('static',filename='css/main.css') }}' rel='stylesheet' type='text/css'>
 </head>
@@ -12,7 +13,7 @@
 <br>
 <div class="intro center" >
     <div align="center">
-        <h1>Welcome to KeepItUp</h1><br>
+        <h1>Welcome to <b>ReactGif</b></h1><br>
         <br>
         <h3>Press the button, we'll take a photo from you and analyze it</h3>
         <h3>Depending on your emotions, we'll show you a specific content</h3>
@@ -34,7 +35,7 @@
         <h3>Looks like you're already happy!! ;)</h3>
         <h4>But you can watch a hedgehog taking a bath anyway</h4>
         <br>
-        <img src="static/resources/gif/1.gif">
+        <img src="{{ url_for('static',filename='/resources/gif/-1.gif') }}">
     </div>
 </div>
 
@@ -53,7 +54,7 @@
     <div align="center">
         <h3>YOU SAD? :(</h3>
         <h3>Let's see if this cheers you up...</h3>
-        <img src="/static/resources/gif/2.gif">
+        <img id="sad_image">
     </div>
 </div>
 
