@@ -107,3 +107,4 @@ target/
 
 
 reactive-venv
+res/img/*.jpg
