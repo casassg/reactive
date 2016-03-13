@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    jpg = "static/img/reaction.jpg"
-    camera.take_photo(jpg)
-    return render_template("base.html", result=vision.detect(jpg))
-
+    #jpg = "static/img/reaction.jpg"
+    #camera.take_photo(jpg)
+    #return render_template("base.html", result=vision.detect(jpg))
+    return render_template("home.html")
 
 @app.route('/take_me/<id_>')
 def take(id_):
