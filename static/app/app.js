@@ -40,8 +40,8 @@ $(function () {
             noface_section.show();
             return;
         }
-        var dif = new_r - old_r;
-        if (dif > 0) {
+        //var dif = new_r - old_r;
+        if (new_r > 0) {
             happy_section.show()
         } else {
             old_result = new_r;

@@ -10,24 +10,26 @@
 </head>
 <body>
 <br>
-<div class="intro" align="center" >
-    <h1>Welcome to KeepItUp</h1><br>
-    <br>
-    <h3>Press the button, we'll take a photo from you and analyze it</h3>
-    <h3>Depending on your emotions, we'll show you a specific content</h3>
-    <br>
+<div class="intro center" >
+    <div align="center">
+        <h1>Welcome to KeepItUp</h1><br>
+        <br>
+        <h3>Press the button, we'll take a photo from you and analyze it</h3>
+        <h3>Depending on your emotions, we'll show you a specific content</h3>
+        <br>
         <button class="start mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             START
         </button>
+    </div>
 </div>
 
-<div class="loading hidden_begin">
+<div class="loading hidden_begin center">
     <div align="center">
         <h3>Loading...</h3>
         <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
     </div>
 </div>
-<div class="happy hidden_begin">
+<div class="happy hidden_begin center">
     <div align="center">
         <h3>Looks like you're already happy!! ;)</h3>
         <h4>But you can watch a hedgehog taking a bath anyway</h4>
@@ -36,7 +38,7 @@
     </div>
 </div>
 
-<div class="noface hidden_begin">
+<div class="noface hidden_begin center">
     <div align="center">
         <h3>Seems like you got no face</h3>
         <h4>Maybe try to enable your camera?</h4>
@@ -47,7 +49,7 @@
             </button>
     </div>
 </div>
-<div class="sad hidden_begin">
+<div class="sad hidden_begin center">
     <div align="center">
         <h3>YOU SAD? :(</h3>
     </div>
@@ -57,6 +59,7 @@
 <script src="{{ url_for('static',filename='lib/mdl/material.min.js') }}"></script>
 <script src="{{ url_for('static',filename='lib/jquery/jquery-2.2.1.min.js') }}"></script>
 <script src="{{ url_for('static',filename='app/app.js') }}"></script>
+<script src="{{ url_for('static',filename='app/animate.js') }}"></script>
 
 </body>
 </html>

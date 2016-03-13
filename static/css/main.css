@@ -8,6 +8,7 @@
 
 body {
     font-family: 'Josefin Slab', serif;
+    color:white;
 }
 
 
@@ -15,7 +16,7 @@ button {
     height:50px;
     width:150px
 }
-body div {
+body div.center {
     font-family: 'Josefin Slab', serif;
     position: absolute;
     top: 30%;
